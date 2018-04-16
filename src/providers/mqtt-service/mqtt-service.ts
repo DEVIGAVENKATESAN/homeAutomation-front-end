@@ -20,6 +20,13 @@ export class MqttServiceProvider {
     off: "Off"
   }
 
+  public bedLight = {
+    name: "Bedroom Light",
+    topic: "hall/bedroom/light",
+    status: true,
+    on: "On",
+    off: "Off"
+  }
   public fan = {
     name: "Hall Fan",
     topic: "hall/fan",
@@ -29,8 +36,17 @@ export class MqttServiceProvider {
   }
 
   public lightSensor = {
-    name: "Hall Fan",
-    topic: "hall/lightSensor",
+    name: "Light Sensor",
+    topic: "hall/light/ldr",
+    status: true,
+    on: "On",
+    off: "Off",
+    range:5
+  }
+
+  public motionSensor = {
+    name: "Motion Sensor",
+    topic: "hall/bedroom/motion",
     status: true,
     on: "On",
     off: "Off",
@@ -50,6 +66,10 @@ export class MqttServiceProvider {
       .on('connect', () => {
 
         this.subscribeTopic(this.light.topic);
+        this.subscribeTopic(this.fan.topic);
+        this.subscribeTopic(this.bedLight.topic);
+        this.subscribeTopic(this.lightSensor.topic);
+        this.subscribeTopic(this.motionSensor.topic);
         console.log('connected to iot mqtt websocket');
         // this   .mqttClient   .publish('test-topic', "message from ionic");
       });
@@ -65,6 +85,39 @@ export class MqttServiceProvider {
 
             } else  if(message == "off") {
               this.light.status = false;
+
+            }
+          } else   if(topic == this.lightSensor.topic) {
+            if(message == "on") {
+              this.lightSensor.status = true;
+
+            } else  if(message == "off") {
+              this.lightSensor.status = false;
+
+            }
+          }  else   if(topic == this.bedLight.topic) {
+            if(message == "on") {
+              this.bedLight.status = true;
+
+            } else  if(message == "off") {
+              this.bedLight.status = false;
+
+            }
+          }  else   if(topic == this.fan.topic) {
+            if(message == "on") {
+              this.fan.status = true;
+
+            } else  if(message == "off") {
+              this.fan.status = false;
+
+            }
+          }
+          else   if(topic == this.motionSensor.topic) {
+            if(message == "on") {
+              this.motionSensor.status = true;
+
+            } else  if(message == "off") {
+              this.motionSensor.status = false;
 
             }
           }
