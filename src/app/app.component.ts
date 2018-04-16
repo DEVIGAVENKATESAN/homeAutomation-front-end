@@ -20,18 +20,18 @@ import AWSMqtt from 'aws-mqtt-client';
   templateUrl: 'app.html'
 })
 export class MyApp {
-
-  mqttClient = new AWSMqtt({
-    accessKeyId: "AKIAIZL676JY7XEK6HZA",
-    secretAccessKey: "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",
-    sessionToken: '',
-    endpointAddress: "a3cd6yyy4as8ey.iot.us-east-1.amazonaws.com",
-    region: 'us-east-1'
-  });
+  appversion =3;
+  // mqttClient = new AWSMqtt({
+  //   accessKeyId: "AKIAIZL676JY7XEK6HZA",
+  //   secretAccessKey: "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",
+  //   sessionToken: '',
+  //   endpointAddress: "a3cd6yyy4as8ey.iot.us-east-1.amazonaws.com",
+  //   region: 'us-east-1'
+  // });
 
   @ViewChild(Nav) nav: Nav;
-  url={
-    "endpointAddress": "a3cd6yyy4as8ey.iot.us-east-1.amazonaws.com"}
+  // url={
+  //   "endpointAddress": "a3cd6yyy4as8ey.iot.us-east-1.amazonaws.com"}
   // make HelloIonicPage the root (or first) page
   rootPage = 'DeviceMonitorPage';
   pages: Array<{title: string, component: any}>;
@@ -42,6 +42,7 @@ export class MyApp {
     public statusBar: StatusBar,
     public splashScreen: SplashScreen
   ) {
+    console.log("app version",this.appversion)
     this.initializeApp();
 
     // set our app's pages
