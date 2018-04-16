@@ -1,0 +1,138 @@
+<!--
+  Generated template for the DeviceMonitorPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+  pin -gps icon
+-->
+<ion-header>
+
+  <ion-toolbar color="lightBlue">
+    <ion-buttons start class="firstOrder">
+      <button ion-button icon-only>
+            <ion-icon name="home"></ion-icon>
+          </button>
+    </ion-buttons>
+
+    <ion-title>Deviga Home</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only>
+                <ion-icon name="notifications"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+            <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+        <ion-card class="deviceCardActive">
+        
+          <ion-icon  ios="ios-bulb" md="md-bulb" class="deviceIconActive" [class.on]="mqtt.light.status"> </ion-icon>
+          <div class="card-title deviceTitleActive" >{{mqtt.light.name}}</div>
+
+          <ion-item >
+            <ion-label *ngIf="mqtt.light.status">{{mqtt.light.on}}</ion-label>
+            <ion-label *ngIf="!mqtt.light.status">{{mqtt.light.off}}</ion-label>
+            <ion-toggle [(ngModel)]="mqtt.light.status" 
+            (ngModelChange)="mqtt.publishData(mqtt.light)"></ion-toggle>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+
+  
+      <ion-col col-6>
+          <ion-card class="deviceCardActive">
+            <!-- ios buld for dark -->
+            <ion-icon name="md-flower" class="deviceIconActive"
+            [class.on]="mqtt.fan.status"> </ion-icon>
+            <div class="card-title deviceTitleActive">{{mqtt.fan.name}}</div>
+  
+            <ion-item >
+              <ion-label *ngIf="mqtt.fan.status">{{mqtt.fan.on}}</ion-label>
+              <ion-label *ngIf="!mqtt.fan.status">{{mqtt.fan.off}}</ion-label>
+              <ion-toggle [(ngModel)]="mqtt.fan.status" 
+              (ngModelChange)="mqtt.publishData(mqtt.fan)"></ion-toggle>
+            </ion-item>
+          </ion-card>
+        </ion-col>
+
+    
+
+      <ion-col col-12>
+          <ion-card class="deviceCardActive">
+            <!-- ios buld for dark -->
+            <ion-icon  name="sunny" class="deviceIconActive"  [class.on]="mqtt.lightSensor.status"> </ion-icon>
+            <div class="card-title deviceTitleActive">{{mqtt.lightSensor.name}}</div>
+            <ion-item>
+                <ion-label *ngIf="mqtt.lightSensor.status">{{mqtt.lightSensor.on}}</ion-label>
+                <ion-label *ngIf="!mqtt.lightSensor.status">{{mqtt.lightSensor.off}}</ion-label>
+                <ion-toggle [(ngModel)]="mqtt.lightSensor.status" 
+                (ngModelChange)="mqtt.publishData(mqtt.lightSensor)"></ion-toggle>
+              </ion-item>
+
+            <ion-item>
+                <ion-range [(ngModel)]="mqtt.lightSensor.range" [disabled]="!mqtt.lightSensor.status">
+                  <ion-icon range-left small name="ios-sunny"></ion-icon>
+                  <ion-icon range-right name="sunny"></ion-icon>
+                </ion-range>
+              </ion-item>
+          </ion-card>
+        </ion-col>
+
+
+      <ion-col col-6>
+        <ion-card class="deviceCardActive">
+          <ion-icon name="md-flower" class="deviceIconActive"> </ion-icon>
+          <div class="card-title deviceTitleActive">Fan</div>
+
+          <ion-item>
+            <ion-label> On</ion-label>
+            <ion-toggle checked="false"></ion-toggle>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+
+
+      <ion-col col-6>
+        <ion-card class="deviceCardActive">
+          <ion-icon name="md-flower" class="deviceIconActive"> </ion-icon>
+          <div class="card-title deviceTitleActive">Fan</div>
+
+          <ion-item>
+            <ion-label> On</ion-label>
+            <ion-toggle checked="false"></ion-toggle>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+
+
+
+      <ion-col col-6>
+        <ion-card class="deviceCardActive">
+          <ion-icon name="sunny" class="deviceIconActive"> </ion-icon>
+          <div class="card-title deviceTitleActive">Fan</div>
+
+          <ion-item>
+            <ion-label> On</ion-label>
+            <ion-toggle checked="false"></ion-toggle>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    
+   
+  </ion-grid>
+
+</ion-content>

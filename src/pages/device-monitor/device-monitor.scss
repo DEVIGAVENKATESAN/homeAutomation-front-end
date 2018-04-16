@@ -1,0 +1,45 @@
+page-device-monitor {
+
+
+    $iconOnColor :   #ffbd00;
+    $iconOffColor :  #787876;
+
+    .grid{
+        padding: 0px;
+    }
+
+    .firstOrder{
+        order:1;
+        font-size: 18px;
+    }
+
+    .deviceIconActive {
+        display: block;
+        font-size: 9rem;
+        /* position: absolute; */
+        margin: 0 auto;
+        width: 75px;
+        // color: #ffbd00;
+        color:$iconOffColor;
+
+    }
+    .deviceTitleActive {
+        text-align: center;
+        font-weight: 600;
+        color: #ffffff;
+        font-size: 20px;
+        padding: 5px 5px;
+    }
+
+    .deviceCardActive {
+        background-color: #39433d;
+    }
+
+    .off {
+        color:#787876
+    }
+
+    .on {
+color:   $iconOnColor;
+    }
+}
