@@ -49,13 +49,16 @@ export class MqttServiceProvider {
       .mqttClient
       .on('connect', () => {
 
+        this.subscribeTopic(this.light.topic);
         console.log('connected to iot mqtt websocket');
         // this   .mqttClient   .publish('test-topic', "message from ionic");
       });
 
       try{
+
         this.mqttClient.on('message', (topic, message) => {
 
+          console.log(topic,"\n",message)
           if(topic == this.light.topic) {
             if(message == "on") {
               this.light.status = true;

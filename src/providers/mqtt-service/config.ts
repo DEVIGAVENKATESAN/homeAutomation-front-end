@@ -5,8 +5,9 @@
   }
  
    export const config ={
-    accessKeyId: "AKIAIZL676JY7XEK6HZA", 
-    secretAccessKey: "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", 
-    sessionToken: '', 
+    accessKeyId: "AKIAI3UAP44DOWX6HUEA", 
+    secretAccessKey: "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", 
+   
     endpointAddress: "a3cd6yyy4as8ey.iot.us-west-2.amazonaws.com", region: 'us-west-2'};
     
+    // sessionToken: '', 
